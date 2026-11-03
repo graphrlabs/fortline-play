@@ -1,0 +1,6 @@
+sha: e8e5d253758e8424b2ca2367ddae6d9f45f2e290
+short: e8e5d25
+subject: fix: pack03 smoke accepts exclude_filter paths with or without res://
+built: 2026-11-03 09:04:17 EST
+godot: 4.7.2.stable.official.ed1daf0bf
+targets: web macos windows
