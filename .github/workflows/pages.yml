@@ -1,0 +1,43 @@
+name: Deploy Fortline web build to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # Pages on the free plan needs a public repo; skip while the repo is private.
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble site (rejoin split pck)
+        run: |
+          mkdir _site
+          cp index.html index.js index.wasm index.png index.icon.png index.apple-touch-icon.png index.audio.worklet.js index.audio.position.worklet.js .nojekyll BUILD_INFO.txt _site/
+          if [ -d pck ]; then
+            cat pck/index.pck.part-* > _site/index.pck
+            test "$(sha256sum _site/index.pck | cut -d' ' -f1)" = "$(cat pck/index.pck.sha256)"
+          else
+            cp index.pck _site/index.pck
+          fi
+          ls -la _site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

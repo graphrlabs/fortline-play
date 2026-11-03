@@ -1,0 +1,6 @@
+sha: 98f8a75c2d3db5f6b52f6efb9b8938ad0803a5c5
+short: 98f8a75
+subject: release: export referenced PACK02 textures (fix white props)
+built: 2026-11-03 08:10:43 EST
+godot: 4.7.2.stable.official.ed1daf0bf
+targets: web macos windows
