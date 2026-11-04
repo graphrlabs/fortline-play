@@ -1,0 +1,6 @@
+sha: ddd2bcc28759c8d6d7c2605f1fcb9415749abbe0
+short: ddd2bcc
+subject: integrate: check off 6 done slice tasks, dedupe, add tonight queue (T13 CL17 CL18 T14 CL19 CL20 CL26)
+built: 2026-11-04 07:37:52 EST
+godot: 4.7.2.stable.official.ed1daf0bf
+targets: web macos windows
