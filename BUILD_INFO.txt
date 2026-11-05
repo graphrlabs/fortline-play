@@ -1,0 +1,6 @@
+sha: 95144f1c70d3809261a00462c0ae0ffe4aca2334
+short: 95144f1
+subject: LEAK01: NetGunLink is RefCounted, not an unparented Node
+built: 2026-11-05 07:47:47 EST
+godot: 4.7.2.stable.official.ed1daf0bf
+targets: web macos windows
